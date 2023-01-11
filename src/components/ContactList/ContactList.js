@@ -1,5 +1,4 @@
 import { useSelector } from 'react-redux';
-import { useEffect } from 'react';
 import { getContacts, getFilter } from 'redux/selectors';
 import { ContactItem } from 'components/ContactItem/ContactItem';
 import { ListElem } from './ContactList.styled';
@@ -12,11 +11,6 @@ export const ContactList = () => {
     contacts.filter(contact =>
       contact.name.toLowerCase().includes(filter.toLowerCase())
     );
-
-  useEffect(
-    () => window.localStorage.setItem('contacts', JSON.stringify(contacts)),
-    [contacts]
-  );
 
   return (
     <>
